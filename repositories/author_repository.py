@@ -40,3 +40,15 @@ def select(id):
         result = results[0]
         author = Author(result['name'], result['id'])
     return author
+
+
+def delete(id):
+    sql = "DELETE FROM authors WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+
+def update(author):
+    sql = "UPDATE authors SET name = %s WHERE id = %s"
+    values = [author.name, author.id]
+    run_sql(sql, values)

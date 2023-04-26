@@ -1,8 +1,12 @@
-{% extends  "base.jinja" %}
+{% extends "base.jinja" %}
 {% block content %}
 
 <div>
-show a book here
+    <p>{{book.title}}</p>
+    <hr>
+    <p>{{book.author.name}}</p>
+    <p>{{book.genre}}</p>
+    <p><a href="/books/{{book.id}}/edit">Edit</a></p>
 </div>
 
 {% endblock %}
