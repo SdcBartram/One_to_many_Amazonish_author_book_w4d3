@@ -14,10 +14,19 @@ author_repo.save(author2)
 
 # author_repo.select_all()
 
+
+
+
 book1 = Book("IT", "horror", author1)
 book_repo.save(book1)
 book2 = Book("Emma", "horror", author2)
 book_repo.save(book2)
+
+# book_repo.select_all()
+
+books = book_repo.select_all()
+for book in books:
+    print(book.title)
 
 # book_repo.delete(1)
 

@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 
 from models.book import Book
+from models.author import Author
 
 import repositories.book_repository as book_repo
 import repositories.author_repository as author_repo
@@ -21,6 +22,7 @@ def new_book():
 @books_blueprint.route("/books")
 def books():
     books = book_repo.select_all()
+    print(books)
     return render_template("books/index.jinja", all_books=books)
 
 # create - POST '/books
@@ -30,8 +32,14 @@ def books():
 def create_book():
     title = request.form['title']
     genre = request.form['genre']
-    author_id = request.form['author_id']
-    author = author_repo.select(author_id)
+    author_name = request.form['author_name']
+    existing_author = request.form.get('existing_author')
+    if existing_author:
+        author_id = request.form['author_id']
+        author = author_repo.select(author_id)
+    else:
+        author = author_repo.save(Author(author_name))
+
     book = Book(title, genre, author)
     book_repo.save(book)
     return redirect('/books')
@@ -58,11 +66,12 @@ def edit_book(id):
 
 @books_blueprint.route("/books/<id>", methods=['POST'])
 def update_book(id):
-    title = request.form['title']
-    genre = request.form['genre']
+    book = book_repo.select(id)
+    book.title = request.form['title']
+    book.genre = request.form['genre']
     author_id = request.form['author_id']
     author = author_repo.select(author_id)
-    book = Book(title, genre, author)
+    book.author = author
     book_repo.update(book)
     return redirect('/books')
 

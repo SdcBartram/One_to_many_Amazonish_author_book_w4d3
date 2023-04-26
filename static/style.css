@@ -1,0 +1,70 @@
+body {
+    font-family: "Libre Baskerville";
+    background-color: #3A98B9;
+}
+
+.book {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.author {
+font-style: italic;
+}
+
+.buttons {
+display: flex;
+}
+
+.delete-form {
+margin-left: 10px;
+}
+
+.trash_button {
+background-color: white;
+border: none;
+}
+
+.trash_button:hover {
+color: red;
+cursor: pointer;
+}
+
+footer {
+    color: #E8D5C4;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+    font-weight: bold;
+    color: #E8D5C4;
+    padding-right: 15%;
+}
+
+.menu a {
+    color: #EEEEEE;
+    display: inline;
+}
+
+.menu li {
+    padding: 0 10px;
+}
+
+.navLink:hover {
+    font-size: larger;
+}
