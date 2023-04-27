@@ -12,5 +12,5 @@ CREATE TABLE books (
   title VARCHAR(255),
   genre VARCHAR(255),
   publisher VARCHAR(255),
-  author_id INT NOT NULL REFERENCES authors(id)
+  author_id INT NOT NULL REFERENCES ON DELETE CASCADE authors(id)
 );

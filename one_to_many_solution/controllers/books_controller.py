@@ -8,7 +8,7 @@ books_blueprint = Blueprint("books", __name__)
 
 @books_blueprint.route("/books")
 def books():
-    books = book_repository.select_all() # NEW
+    books = book_repository.select_all() 
     return render_template("books/index.html", all_books = books)
 
 # NEW
@@ -50,12 +50,11 @@ def edit_book(id):
 # PUT '/books/<id>'
 @books_blueprint.route("/books/<id>", methods=['POST'])
 def update_book(id):
-    title    = request.form['title']
+    title = request.form['title']
     genre = request.form['genre']
-    publisher   = request.form['publisher']
-    author  = author_repository.select(request.form['author_id'])
+    publisher = request.form['publisher']
+    author = author_repository.select(request.form['author_id'])
     book = Book(title, genre, publisher, author, id)
-    print(book.author.full_name())
     book_repository.update(book)
     return redirect('/books')
 
@@ -65,3 +64,12 @@ def update_book(id):
 def delete_book(id):
     book_repository.delete(id)
     return redirect('/books')
+
+
+@books_blueprint.route('/author/<id>/books')
+def show_books_by_author(id):
+    author = author_repository.select(id)
+    books_by_author = book_repository.books_for_author(author)
+    return render_template('books/index.html', all_books = books_by_author)
+
+
