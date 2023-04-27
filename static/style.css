@@ -1,6 +1,7 @@
 body {
     font-family: "Libre Baskerville";
     background-color: #3A98B9;
+    color: #E8D5C4;
 }
 
 .book {
@@ -8,37 +9,45 @@ body {
     padding: 10px;
     margin-bottom: 10px;
 }
-
+.book {
+    background-color: #7DB9B6;
+}
 .content {
-display: flex;
-justify-content: space-between;
-align-items: center;
+    font-size: large;
+    color:#E8D5C4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content:hover {
+    font-size: x-large;
+}
+
+.content a {
+    color: #E8D5C4;
 }
 
 .author {
-font-style: italic;
+    font-size: large;
+    font-style: italic;
 }
 
 .buttons {
-display: flex;
+    display: flex;
 }
 
 .delete-form {
-margin-left: 10px;
+    margin-left: 10px;
 }
 
 .trash_button {
-background-color: white;
-border: none;
-}
-
-.trash_button:hover {
-color: red;
-cursor: pointer;
+    background-color: white;
+    border: none;
 }
 
 footer {
-    color: #E8D5C4;
+    color: #EEEEEE;
     text-align: center;
 }
 
@@ -66,5 +75,37 @@ nav {
 }
 
 .navLink:hover {
+    font-size: larger;
+}
+
+form {
+    display: grid;
+    background-color: #7DB9B6;
+    font-size: large;
+}
+
+.container {
+    display: grid;
+    background-color: #7DB9B6;
+    font-size: large;
+}
+
+.container a {
+    color: #E8D5C4;
+    font-size: large;
+}
+
+.container a:hover {
+    font-size: larger;
+}
+
+button {
+    background-color: #3A98B9;
+    font-size: large;
+    color: #E8D5C4;
+
+}
+
+button:hover {
     font-size: larger;
 }
