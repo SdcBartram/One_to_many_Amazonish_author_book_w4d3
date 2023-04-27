@@ -14,9 +14,6 @@ author_repo.save(author2)
 
 # author_repo.select_all()
 
-
-
-
 book1 = Book("IT", "horror", author1)
 book_repo.save(book1)
 book2 = Book("Emma", "horror", author2)
